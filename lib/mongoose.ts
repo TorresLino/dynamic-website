@@ -4,11 +4,46 @@ if (!process.env.MONGODB_URI) {
   throw new Error('Invalid environment variable: "MONGODB_URI"')
 }
 
-const uri = process.env.MONGODB_URI
-const options = {}
+if (!process.env.MONGODB_USER) {
+  throw new Error('Invalid environment variable: "MONGODB_USER"')
+}
 
-const connectMongo = () => {
-  mongoose.connect(uri)
+if (!process.env.MONGODB_PASSWORD) {
+  throw new Error('Invalid environment variable: "MONGODB_PASSWORD"')
+}
+
+declare global {
+  var mongoose: {
+    conn: null | typeof import('mongoose'),
+    promise: null | Promise<typeof import('mongoose')>
+  }
+}
+const cached = global.mongoose || { conn: null, promise: null }
+
+const uri = process.env.MONGODB_URI
+const user = process.env.MONGODB_USER
+const pass = process.env.MONGODB_PASSWORD
+
+const connectMongo = async () => {
+  if (cached.conn) {
+    return cached.conn
+  }
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(
+      uri,
+      {
+        user,
+        pass,
+        authMechanism: 'DEFAULT',
+        authSource: 'torres'
+      }
+    ).then(mongoose => mongoose)
+  }
+
+  cached.conn = await cached.promise
+
+  return cached.conn
 }
 
 export default connectMongo
