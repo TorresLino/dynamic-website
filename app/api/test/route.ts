@@ -4,13 +4,13 @@ import connectMongo from '@/lib/mongoose'
 
 export async function GET() {
 
-  return NextResponse.json({ name: 'kansa'})
+    return NextResponse.json({ name: 'kansa' })
 }
 
-export async function POST(req: NextRequest, res: Response) {
-  connectMongo()
+export async function POST(req: NextRequest) {
+    connectMongo()
 
-  const page = await Page.create(await req.json())
+    const page = await Page.create(await req.json())
 
-  return NextResponse.json({ page })
+    return NextResponse.json({ page })
 }
