@@ -34,10 +34,4 @@ pageSchema.add({
 
 const Page = models.Page || model('Page', pageSchema)
 
-export class kansa{
-    meuamigo(){
-
-    }
-}
-
 export default Page
