@@ -1,10 +1,10 @@
 import './globals.css'
-import { Inter, Noto_Sans_JP } from 'next/font/google'
+import { HeaderSimple } from '@/components/HeaderSimple'
 import type { Metadata } from 'next'
+import { Noto_Sans_JP } from 'next/font/google'
 import Providers from '../components/Providers'
 import { ReactNode } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
 const noto = Noto_Sans_JP({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-    children,
+    children
 }: {
   children: ReactNode
 }) {
@@ -21,7 +21,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={noto.className}>
                 <Providers>
-                    {children}
+                    <HeaderSimple links={[{ label: 'test1', link: '/' }]}/>
+                    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+                        {children}
+                    </main>
                 </Providers>
             </body>
         </html>

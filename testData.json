@@ -1,0 +1,34 @@
+{
+    "_id": {
+      "$oid": "64cd84525057c84855668dca"
+    },
+    "contentId": {
+      "$oid": "64cd83f75057c84855668dc8"
+    },
+    "childArticles": [
+      {
+        "_id": {
+          "$oid": "64cd84525057c84855668dbb"
+        },
+        "contentId": {
+          "$oid": "64cd84d35057c84855668dcc"
+        },
+        "childArticles": [],
+        "path": "1",
+        "title": "Test 1"
+      },
+      {
+        "_id": {
+          "$oid": "64cd84525057c84855668daa"
+        },
+        "contentId": {
+          "$oid": "64cd84e85057c84855668dcd"
+        },
+        "childArticles": [],
+        "path": "2",
+        "title": "Test 2"
+      }
+    ],
+    "path": "test",
+    "title": "Test 0"
+}
