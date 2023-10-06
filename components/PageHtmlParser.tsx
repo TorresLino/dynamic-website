@@ -1,3 +1,4 @@
+'use server'
 import ArticleContents, { ArticleContent } from '@/models/ArticleContents'
 import Articles, { Article } from '@/models/Articles'
 import connectMongo from '@/lib/mongoose'

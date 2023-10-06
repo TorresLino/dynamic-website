@@ -21,8 +21,14 @@ export default function RootLayout({
         <html lang="en">
             <body className={noto.className}>
                 <Providers>
-                    <HeaderSimple links={[{ label: 'test1', link: '/' }]}/>
-                    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+                    <HeaderSimple
+                        links={[
+                            { label: 'test', link: '/test' },
+                            { label: 'test1', link: '/test/1' },
+                            { label: 'test2', link: '/test/2' }
+                        ]}
+                    />
+                    <main className="">
                         {children}
                     </main>
                 </Providers>

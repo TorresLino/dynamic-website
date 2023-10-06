@@ -4,11 +4,13 @@ import {
     Container,
     Group,
     Header,
+    Switch,
     createStyles,
     rem
 } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
+import { useEditContext } from '@/context/EditContext'
 import { useState } from 'react'
 
 const useStyles = createStyles((theme) => ({
@@ -69,8 +71,9 @@ interface HeaderSimpleProps {
 
 export function HeaderSimple({ links }: HeaderSimpleProps) {
     const [opened, { toggle }] = useDisclosure(false)
-    const [active, setActive] = useState(links[0].link)
+    const [active, setActive] = useState(links[0]?.link ?? '')
     const { classes, cx } = useStyles()
+    const [edit, setEdit] = useEditContext()
 
     const items = links.map((link) => (
         <a
@@ -78,7 +81,6 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
             href={link.link}
             className={cx(classes.link, { [classes.linkActive]: active === link.link })}
             onClick={(event) => {
-                event.preventDefault()
                 setActive(link.link)
             }}
         >
@@ -98,6 +100,12 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
                     className={classes.links}
                 >
                     {items}
+                    <Switch
+                        checked={edit.editing}
+                        onClick={() => {
+                            setEdit({ ...edit, editing: !edit.editing })
+                        }}
+                    />
                 </Group>
 
                 <Burger
