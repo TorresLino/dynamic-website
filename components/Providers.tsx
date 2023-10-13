@@ -8,13 +8,7 @@ export default function Providers({ children }: { children: ReactNode}) {
     return (
         <ArticlesContextProvider>
             <EditContextProvider>
-                <MantineProvider
-                    withGlobalStyles
-                    withNormalizeCSS
-                    theme={{
-                        colorScheme: 'dark'
-                    }}
-                >
+                <MantineProvider defaultColorScheme="dark">
                     { children }
                 </MantineProvider>
             </EditContextProvider>
