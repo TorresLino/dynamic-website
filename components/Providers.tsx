@@ -1,7 +1,7 @@
 'use client'
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { ArticlesContextProvider } from '@/context/ArticlesContext'
 import { EditContextProvider } from '@/context/EditContext'
-import { MantineProvider } from '@mantine/core'
 import { ReactNode } from 'react'
 
 export default function Providers({ children }: { children: ReactNode}) {

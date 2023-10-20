@@ -1,7 +1,7 @@
 'use client'
 import { Burger, Group } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
-import classes from '../public/HeaderStyles.module.css'
+import classes from './styles/HeaderStyles.module.css'
 import { useDisclosure } from '@mantine/hooks'
 
 interface MainHeaderProps {
@@ -17,7 +17,6 @@ export function MainHeader(props: MainHeaderProps) {
             key={link.label}
             href={link.link}
             className={classes.link}
-            onClick={(event) => event.preventDefault()}
         >
             {link.label}
         </a>

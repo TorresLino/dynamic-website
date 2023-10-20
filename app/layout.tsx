@@ -1,4 +1,6 @@
+import '@mantine/core/styles.css'
 import './globals.css'
+import { ColorSchemeScript } from '@mantine/core'
 import { MainHeader } from '@/components/MainHeader'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
@@ -19,6 +21,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <ColorSchemeScript />
+            </head>
             <body className={noto.className}>
                 <Providers>
                     <MainHeader
