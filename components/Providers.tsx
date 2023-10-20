@@ -1,20 +1,14 @@
 'use client'
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { ArticlesContextProvider } from '@/context/ArticlesContext'
 import { EditContextProvider } from '@/context/EditContext'
-import { MantineProvider } from '@mantine/core'
 import { ReactNode } from 'react'
 
 export default function Providers({ children }: { children: ReactNode}) {
     return (
         <ArticlesContextProvider>
             <EditContextProvider>
-                <MantineProvider
-                    withGlobalStyles
-                    withNormalizeCSS
-                    theme={{
-                        colorScheme: 'dark'
-                    }}
-                >
+                <MantineProvider defaultColorScheme="dark">
                     { children }
                 </MantineProvider>
             </EditContextProvider>

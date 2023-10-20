@@ -1,5 +1,7 @@
+import '@mantine/core/styles.css'
 import './globals.css'
-import { HeaderSimple } from '@/components/HeaderSimple'
+import { ColorSchemeScript } from '@mantine/core'
+import { MainHeader } from '@/components/MainHeader'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import Providers from '../components/Providers'
@@ -19,9 +21,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <ColorSchemeScript />
+            </head>
             <body className={noto.className}>
                 <Providers>
-                    <HeaderSimple
+                    <MainHeader
                         links={[
                             { label: 'test', link: '/test' },
                             { label: 'test1', link: '/test/1' },
