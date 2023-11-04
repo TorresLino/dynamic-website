@@ -1,4 +1,5 @@
 'use client'
+
 import { Button, NavLink } from '@mantine/core'
 import { Article } from '@/models/Articles'
 

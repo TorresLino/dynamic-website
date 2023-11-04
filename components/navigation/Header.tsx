@@ -1,16 +1,21 @@
 'use client'
+
 import { Burger, Group } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
-import classes from './styles/HeaderStyles.module.css'
-import { useDisclosure } from '@mantine/hooks'
+import classes from '../styles/HeaderStyles.module.css'
 
-interface MainHeaderProps {
-    links: { label: string, link: string} []
+interface HeaderProps {
+    links: { label: string, link: string} [],
+    opened: boolean,
+    toggle: () => void
 }
 
-export function MainHeader(props: MainHeaderProps) {
-    const [opened, { toggle }] = useDisclosure(false)
-    const { links } = props
+export function Header(props: HeaderProps) {
+    const {
+        links,
+        opened,
+        toggle
+    } = props
 
     const items = links.map((link) => (
         <a
