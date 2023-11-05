@@ -31,6 +31,15 @@
     }
 }
 
+.content {
+    margin-left: 200px;
+    margin-top: 56px;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        margin-left: 0px;
+    }
+}
+
 .inner {
     height: rem(56px);
     display: flex;
