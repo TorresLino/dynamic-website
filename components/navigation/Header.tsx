@@ -2,6 +2,7 @@
 
 import { Burger, Group } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
+import ToggleEdit from './ToggleEdit'
 import classes from '../styles/HeaderStyles.module.css'
 
 interface HeaderProps {
@@ -49,6 +50,10 @@ export function Header(props: HeaderProps) {
                     >
                         {items}
                     </Group>
+                </Group>
+
+                <Group>
+                    <ToggleEdit />
                 </Group>
             </div>
         </header>
