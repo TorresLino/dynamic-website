@@ -1,11 +1,12 @@
 import '@mantine/core/styles.css'
 import './globals.css'
 import { ColorSchemeScript } from '@mantine/core'
-import { MainHeader } from '@/components/MainHeader'
+import MainNavigation from '@/components/navigation/MainNavigation'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import Providers from '../components/Providers'
 import { ReactNode } from 'react'
+import classes from '../components/styles/HeaderStyles.module.css'
 
 const noto = Noto_Sans_JP({ subsets: ['latin'] })
 
@@ -26,14 +27,8 @@ export default function RootLayout({
             </head>
             <body className={noto.className}>
                 <Providers>
-                    <MainHeader
-                        links={[
-                            { label: 'test', link: '/test' },
-                            { label: 'test1', link: '/test/1' },
-                            { label: 'test2', link: '/test/2' }
-                        ]}
-                    />
-                    <main className="">
+                    <MainNavigation />
+                    <main className={classes.content}>
                         {children}
                     </main>
                 </Providers>
