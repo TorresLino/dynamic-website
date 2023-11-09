@@ -18,6 +18,8 @@ export default function ArticleNavigationLink(props: ArticleNavigationLinkProps)
 
     return (
         <NavLink
+            childrenOffset={16}
+            component="div"
             label={
                 <Link
                     href={path}
@@ -28,7 +30,6 @@ export default function ArticleNavigationLink(props: ArticleNavigationLinkProps)
                     </Button>
                 </Link>
             }
-            childrenOffset={16}
         >
             {
                 article.childArticles.length > 0 && article.childArticles.map((c, i) => (
