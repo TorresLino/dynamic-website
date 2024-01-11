@@ -16,8 +16,8 @@ import { ListPlugin } from '@lexical/react/LexicalListPlugin'
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 // import TreeViewPlugin from './plugins/TreeViewPlugin'
-// import ToolbarPlugin from './plugins/ToolbarPlugin'
 import { TRANSFORMERS } from '@lexical/markdown'
+// import ToolbarPlugin from '@/lib/lexical/ToolbarPlugin'
 import { useState } from 'react'
 
 // import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin'
@@ -25,6 +25,7 @@ import { useState } from 'react'
 // import AutoLinkPlugin from './plugins/AutoLinkPlugin'
 
 // TODO: https://codesandbox.io/s/lexical-rich-text-example-5tncvy?file=/src/Editor.js
+// TODO: https://blog.logrocket.com/build-rich-text-editor-lexical-react/
 
 export default function LexicalEditor() {
     const [editorState, setEditorState] = useState<EditorState>()
