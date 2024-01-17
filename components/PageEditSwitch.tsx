@@ -1,5 +1,5 @@
 'use client'
-import PageEditor from './PageEditor'
+import PageEditor from './editor/PageEditor'
 import PageHtmlParser from './PageHtmlParser'
 import { useAppContext } from '@/context/AppContext'
 

@@ -1,10 +1,18 @@
 import ArticleContents, { ArticleContent } from '@/models/ArticleContents'
 import Articles, { Article } from '@/models/Articles'
+import { Box, ScrollArea } from '@mantine/core'
 import PageEditSwitch from '@/components/PageEditSwitch'
 import connectMongo from '@/lib/mongoose'
 import { notFound } from 'next/navigation'
 
-export default async function Page({ params: { route } }: { params: { route: string[] } }) {
+interface PageProps {
+    params: { route: string[] }
+}
+
+export default async function Page({
+    params: { route }
+}: PageProps ) {
+
     await connectMongo()
 
     const articles = await Articles.find()
@@ -39,5 +47,15 @@ export default async function Page({ params: { route } }: { params: { route: str
         notFound()
     }
 
-    return <PageEditSwitch content={content.content} />
+    return (
+        <Box>
+            <ScrollArea
+                className="m-5"
+                type="scroll"
+                w="100%"
+            >
+                <PageEditSwitch content={content.content} />
+            </ScrollArea>
+        </Box>
+    )
 }

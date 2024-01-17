@@ -6,7 +6,6 @@ import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import Providers from '../components/Providers'
 import { ReactNode } from 'react'
-import classes from '../components/styles/HeaderStyles.module.css'
 
 const noto = Noto_Sans_JP({ subsets: ['latin'] })
 
@@ -15,11 +14,13 @@ export const metadata: Metadata = {
     title: 'Create Next App'
 }
 
+interface LayoutProps {
+    children: ReactNode
+}
+
 export default function RootLayout({
     children
-}: {
-  children: ReactNode
-}) {
+}: LayoutProps) {
     return (
         <html lang="en">
             <head>
@@ -27,10 +28,9 @@ export default function RootLayout({
             </head>
             <body className={noto.className}>
                 <Providers>
-                    <MainNavigation />
-                    <main className={classes.content}>
+                    <MainNavigation>
                         {children}
-                    </main>
+                    </MainNavigation>
                 </Providers>
             </body>
         </html>
