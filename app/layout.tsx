@@ -23,9 +23,6 @@ export default function RootLayout({
 }: LayoutProps) {
     return (
         <html lang="en">
-            <head>
-                <ColorSchemeScript />
-            </head>
             <body className={noto.className}>
                 <Providers>
                     <MainNavigation>
