@@ -58,7 +58,7 @@
 }
 
 .editor-code {
-    background-color: rgb(240, 242, 245);
+    background-color: var(--mantine-color-body);
     font-family: Menlo, Consolas, Monaco, monospace;
     display: block;
     padding: 8px 8px 8px 52px;
@@ -76,12 +76,12 @@
 .editor-code:before {
     content: attr(data-gutter);
     position: absolute;
-    background-color: #eee;
+    background-color: var(--_app-shell-border-color);
     left: 0;
     top: 0;
     border-right: 1px solid #ccc;
     padding: 8px;
-    color: #777;
+    color: #fffdfd;
     white-space: pre-wrap;
     text-align: right;
     min-width: 25px;
@@ -241,7 +241,8 @@ pre::-webkit-scrollbar-thumb {
 .toolbar {
     display: flex;
     margin-bottom: 1px;
-    background: #fff;
+    background: var(--mantine-color-body);
+    border: 1px solid var(--_app-shell-border-color);
     padding: 4px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -266,36 +267,17 @@ pre::-webkit-scrollbar-thumb {
     margin-right: 2px;
 }
 
-.toolbar button.toolbar-item i.format {
-    background-size: contain;
-    display: inline-block;
-    height: 18px;
-    width: 18px;
-    margin-top: 2px;
-    vertical-align: -0.25em;
-    display: flex;
-    opacity: 0.6;
-}
-
-.toolbar button.toolbar-item:disabled i.format {
-    opacity: 0.2;
-}
-
 .toolbar button.toolbar-item.active {
     background-color: rgba(223, 232, 250, 0.3);
 }
 
-.toolbar button.toolbar-item.active i {
-    opacity: 1;
-}
-
 .toolbar .toolbar-item:hover:not([disabled]) {
-    background-color: #eee;
+    background-color: var(--_app-shell-border-color);
 }
 
 .toolbar .divider {
     width: 1px;
-    background-color: #eee;
+    background-color: var(--mantine-color-text);
     margin: 0 4px;
 }
 
@@ -310,7 +292,7 @@ pre::-webkit-scrollbar-thumb {
     -moz-appearance: none;
     width: 70px;
     font-size: 14px;
-    color: #777;
+    color: var(--mantine-color-text);
     text-overflow: ellipsis;
 }
 
@@ -325,7 +307,7 @@ pre::-webkit-scrollbar-thumb {
     width: 200px;
     vertical-align: middle;
     font-size: 14px;
-    color: #777;
+    color: var(--mantine-color-text);
     text-overflow: ellipsis;
     width: 70px;
     overflow: hidden;
@@ -343,15 +325,7 @@ pre::-webkit-scrollbar-thumb {
     background-size: contain;
 }
 
-.toolbar i.chevron-down {
-    margin-top: 3px;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    user-select: none;
-}
-
-.toolbar i.chevron-down.inside {
+.toolbar svg.inside {
     width: 16px;
     height: 16px;
     display: flex;
@@ -359,59 +333,6 @@ pre::-webkit-scrollbar-thumb {
     margin-top: 11px;
     margin-right: 10px;
     pointer-events: none;
-}
-
-i.chevron-down {
-    background-color: transparent;
-    background-size: contain;
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    background-image: url(/images/icons/chevron-down.svg);
-}
-
-#block-controls button:hover {
-    background-color: #efefef;
-}
-
-#block-controls button:focus-visible {
-    border-color: blue;
-}
-
-#block-controls span.block-type {
-    background-size: contain;
-    display: block;
-    width: 18px;
-    height: 18px;
-    margin: 2px;
-}
-
-#block-controls span.block-type.paragraph {
-    background-image: url(/images/icons/text-paragraph.svg);
-}
-
-#block-controls span.block-type.h1 {
-    background-image: url(/images/icons/type-h1.svg);
-}
-
-#block-controls span.block-type.h2 {
-    background-image: url(/images/icons/type-h2.svg);
-}
-
-#block-controls span.block-type.quote {
-    background-image: url(/images/icons/chat-square-quote.svg);
-}
-
-#block-controls span.block-type.ul {
-    background-image: url(/images/icons/list-ul.svg);
-}
-
-#block-controls span.block-type.ol {
-    background-image: url(/images/icons/list-ol.svg);
-}
-
-#block-controls span.block-type.code {
-    background-image: url(/images/icons/code.svg);
 }
 
 .dropdown {
@@ -478,169 +399,4 @@ i.chevron-down {
     margin-right: 12px;
     line-height: 16px;
     background-size: contain;
-}
-
-.link-editor {
-    position: absolute;
-    z-index: 100;
-    top: -10000px;
-    left: -10000px;
-    margin-top: -6px;
-    max-width: 300px;
-    width: 100%;
-    opacity: 0;
-    background-color: #fff;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    transition: opacity 0.5s;
-}
-
-.link-editor .link-input {
-    display: block;
-    width: calc(100% - 24px);
-    box-sizing: border-box;
-    margin: 8px 12px;
-    padding: 8px 12px;
-    border-radius: 15px;
-    background-color: #eee;
-    font-size: 15px;
-    color: rgb(5, 5, 5);
-    border: 0;
-    outline: 0;
-    position: relative;
-    font-family: inherit;
-}
-
-.link-editor div.link-edit {
-    background-image: url(/images/icons/pencil-fill.svg);
-    background-size: 16px;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 35px;
-    vertical-align: -0.25em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    cursor: pointer;
-}
-
-.link-editor .link-input a {
-    color: rgb(33, 111, 219);
-    text-decoration: none;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    margin-right: 30px;
-    text-overflow: ellipsis;
-}
-
-.link-editor .link-input a:hover {
-    text-decoration: underline;
-}
-
-.link-editor .button {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    padding: 6px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 0 2px;
-}
-
-.link-editor .button.hovered {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background-color: #eee;
-}
-
-.link-editor .button i,
-.actions i {
-    background-size: contain;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    vertical-align: -0.25em;
-}
-
-i.undo {
-    background-image: url(/images/icons/arrow-counterclockwise.svg);
-}
-
-i.redo {
-    background-image: url(/images/icons/arrow-clockwise.svg);
-}
-
-.icon.paragraph {
-    background-image: url(/images/icons/text-paragraph.svg);
-}
-
-.icon.large-heading,
-.icon.h1 {
-    background-image: url(/images/icons/type-h1.svg);
-}
-
-.icon.small-heading,
-.icon.h2 {
-    background-image: url(/images/icons/type-h2.svg);
-}
-
-.icon.bullet-list,
-.icon.ul {
-    background-image: url(/images/icons/list-ul.svg);
-}
-
-.icon.numbered-list,
-.icon.ol {
-    background-image: url(/images/icons/list-ol.svg);
-}
-
-.icon.quote {
-    background-image: url(/images/icons/chat-square-quote.svg);
-}
-
-.icon.code {
-    background-image: url(/images/icons/code.svg);
-}
-
-i.bold {
-    background-image: url(/images/icons/type-bold.svg);
-}
-
-i.italic {
-    background-image: url(/images/icons/type-italic.svg);
-}
-
-i.underline {
-    background-image: url(/images/icons/type-underline.svg);
-}
-
-i.strikethrough {
-    background-image: url(/images/icons/type-strikethrough.svg);
-}
-
-i.code {
-    background-image: url(/images/icons/code.svg);
-}
-
-i.link {
-    background-image: url(/images/icons/link.svg);
-}
-
-i.left-align {
-    background-image: url(/images/icons/text-left.svg);
-}
-
-i.center-align {
-    background-image: url(/images/icons/text-center.svg);
-}
-
-i.right-align {
-    background-image: url(/images/icons/text-right.svg);
-}
-
-i.justify-align {
-    background-image: url(/images/icons/justify.svg);
 }

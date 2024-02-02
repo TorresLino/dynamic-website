@@ -1,6 +1,10 @@
 .lexical-editor {
     width: 100%;
     height: 100%;
-    border: 1px solid white;
+    border: 1px solid var(--_app-shell-border-color);
     padding: 1rem;
+}
+
+.lexical-editor:focus-visible {
+    border-color: red !important;
 }

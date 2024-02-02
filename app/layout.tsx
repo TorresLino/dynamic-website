@@ -1,6 +1,5 @@
 import '@mantine/core/styles.css'
 import './globals.css'
-import { ColorSchemeScript } from '@mantine/core'
 import MainNavigation from '@/components/navigation/MainNavigation'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
